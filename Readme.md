@@ -17,11 +17,11 @@ If you don't have WebdriverIO installed and do not know how to properly operate 
 
 ## Running the test cases
 
-After installing all default packages and dependancies, please clone this repository using 'git clone' to your local machine and go to the **specs** folder.
+After installing all default packages and dependancies, please clone this repository using `git clone` to your local machine and go to the **specs** folder.
 There are currently 3 test cases that can be run using following commands:
 
-1) 'ideal_login.js' - This tests the website's login function by feeding incorrect user credentials to receive a warning message. To run this test type in your terminal: 'npx wdio run ./wdio.conf.js --spec ideal_login.js'
+1) `ideal_login.js` - This tests the website's login function by feeding incorrect user credentials to receive a warning message. To run this test type in your terminal: `npx wdio run ./wdio.conf.js --spec ideal_login.js`
 
-2) 'ideal_search.js' - This tests the search function of the web-store by looking feeding the input into the search bar and checking if the search bar contains the product text. To run this test type in your terminal: 'npx wdio run ./wdio.conf.js --spec ideal_search.js'
+2) `ideal_search.js` - This tests the search function of the web-store by looking feeding the input into the search bar and checking if the search bar contains the product text. To run this test type in your terminal: `npx wdio run ./wdio.conf.js --spec ideal_search.js`
 
-3) 'ideal_addBasket.js' - This tests the website's ability to add a product to a basket and remove it from it. To run this test type in your terminal: 'npx wdio run ./wdio.conf.js --spec ideal_addBasket.js'
+3) `ideal_addBasket.js` - This tests the website's ability to add a product to a basket and remove it from it. To run this test type in your terminal: `npx wdio run ./wdio.conf.js --spec ideal_addBasket.js`
