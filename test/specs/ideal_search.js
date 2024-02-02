@@ -1,4 +1,3 @@
-//import { iDealMainPage } from "../indexation.js";
 import SearchPage from '../pages/ideal_search.page.js';
 describe('iDeal search for iPhone 15 Pro', () => {
     before(() => {
