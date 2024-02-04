@@ -3,7 +3,7 @@ import { iDealMainPage } from "../indexation.js";
 
 class AddBasketPage extends Page {
     open () {
-        super.open(iDealMainPage);
+        super.open(iDealMainPage+'iphone-15-pro?color=308&erply_storage=8');
     }
 
     get productLabel () {

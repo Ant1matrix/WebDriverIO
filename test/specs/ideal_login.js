@@ -1,44 +1,38 @@
 import { iDealMainPage } from "../indexation.js";
+import LoginPage from "../pages/ideal_login.page.js";
+
 describe('iDeal login', () => {
     
+    before(() => {
+        LoginPage.open();
+    });
+    
     it('should open main URL and verify the title', async () => {
-        await browser.url(iDealMainPage);
-        //Expects:
         await expect(browser).toHaveTitle('iDeal - Front page');
     });
+    
     it('should click on my account and verify login button to be displayed', async () => {
-        const myaccButton = await $$('li.link-account span.bp3-popover-target a span.label')[0];
-        await myaccButton.click();
-        const loginButton = await $$('a.menu-item.bp3-menu-item.bp3-popover-dismiss.intent-default')[0]; 
-        //Expects:
-        await expect(loginButton).toBeDisplayed();
+        await LoginPage.myaccButton.click();
+        await expect(LoginPage.loginButton).toBeDisplayed();
     });
-    it('should check button link, click and verify new url', async () => {
-        const loginButton = await $$('a.menu-item.bp3-menu-item.bp3-popover-dismiss.intent-default')[0];        
-        await loginButton.click();
-        //Expects:
-        await expect(loginButton).toHaveUrl(iDealMainPage+'customer/account/login/referer/aHR0cHM6Ly93d3cuaWRlYWwubHYv/');
+    
+    it('should click the login button and verify new url', async () => {       
+        await LoginPage.loginButton.click();
         await expect(browser).toHaveUrl(iDealMainPage+'customer/account/login/referer/aHR0cHM6Ly93d3cuaWRlYWwubHYv/');
     });
+    
     it('should check the web-page to have title LOGIN', async () => {
-        const loginTitle = await $('h1.page-title span');
-        //Expects:
-        await expect(loginTitle).toHaveText('Pieslēgties');
+        await expect(LoginPage.loginTitle).toHaveText('Pieslēgties');
     });
+    
     it('should type in test email and pass, and check if submit is clickable', async () => {
-        const emailField = await $('#email');
-        const passField = await $('#pass');
-        const submitBtn = await $('#send2');
-        await emailField.addValue('test@test.com');
-        await passField.addValue('testpass');
-        //Expects:
-        await expect(submitBtn).toBeClickable();
+        await LoginPage.emailField.addValue('test@test.com');
+        await LoginPage.passField.addValue('testpass');
+        await expect(LoginPage.submitBtn).toBeClickable();
     });
+    
     it('should click on submit button and receive a warning message', async () => {
-        const submitBtn = await $('#send2');
-        await submitBtn.click();
-        const alertMsg = await $('div.cart-callout.intent-danger');
-        //Expects:
-        await expect(alertMsg).toHaveText('Pierakstīšanās kontā nebija veiksmīga un jūsu konts uz laiku ir slēgts. Lūdzu, uzgaidiet un vēlāk mēģiniet vēlreiz.');
+        await LoginPage.submitBtn.click();
+        await expect(LoginPage.alertMsg).toHaveText('Pierakstīšanās kontā nebija veiksmīga un jūsu konts uz laiku ir slēgts. Lūdzu, uzgaidiet un vēlāk mēģiniet vēlreiz.');
     });
 });
