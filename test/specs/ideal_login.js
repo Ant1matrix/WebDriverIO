@@ -1,4 +1,4 @@
-import { iDealMainPage } from "../indexation.js";
+import { iDealMainPage } from "../resources/index.js";
 import LoginPage from "../pages/ideal_login.page.js";
 
 describe('iDeal login', () => {
@@ -33,6 +33,7 @@ describe('iDeal login', () => {
     
     it('should click on submit button and receive a warning message', async () => {
         await LoginPage.submitBtn.click();
+        await LoginPage.alertMsg.waitForExist({timeout:1000});
         await expect(LoginPage.alertMsg).toHaveText('Pierakstīšanās kontā nebija veiksmīga un jūsu konts uz laiku ir slēgts. Lūdzu, uzgaidiet un vēlāk mēģiniet vēlreiz.');
     });
 });

@@ -1,6 +1,5 @@
 import Page from "./page.js";
-import { iDealMainPage } from "../indexation.js";
-//Gains access to all methods from Page class (inheritance)
+import {iDealMainPage} from "../resources/index.js";
 
 class SearchPage extends Page {
     open() {

@@ -1,5 +1,5 @@
 import Page from "./page.js";
-import { iDealMainPage } from "../indexation.js";
+import { iDealMainPage } from "../resources/index.js";
 
 class LoginPage extends Page {
     open () {

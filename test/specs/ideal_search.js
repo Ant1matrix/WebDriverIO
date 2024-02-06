@@ -1,21 +1,24 @@
 import SearchPage from '../pages/ideal_search.page.js';
+import {homeTitle} from '../resources/index.js';
+
 describe('iDeal search for iPhone 15 Pro', () => {
+    
     before(() => {
         SearchPage.open(); 
     });
+    
     it('should open main URL and verify the title', async () => {
-        //Expects:
-        await expect(browser).toHaveTitle('iDeal - Front page');
+        await expect(browser).toHaveTitle(homeTitle);
     });
     
-    it('should click search button and verify input value', async () => { //!!Change tobeclickable to checking if the bar is showing
+    it('should click search button and check if search bar is desplayed', async () => {
         await SearchPage.searchButton.click();
-        //Expects:
-        expect(SearchPage.searchButton).toBeClickable();
+        SearchPage.searchInput.waitForDisplayed({timeout: 1000});
+        expect(SearchPage.searchInput).toBeDisplayed();
     });
+    
     it('should add value to search and verify input', async () => {
         await SearchPage.searchInput.addValue('iPhone');
-        //Expects:
         expect(SearchPage.searchInput).toHaveValue('iPhone');
     });
 });

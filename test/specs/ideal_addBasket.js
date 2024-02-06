@@ -1,4 +1,4 @@
-import { iDealMainPage } from "../indexation.js";
+import { iDealMainPage } from "../resources/index.js";
 import AddBasketPage from "../pages/ideal_addBasket.page.js";
 
 describe('iDeal - add iPhone to basket and remove from basket', () => {
