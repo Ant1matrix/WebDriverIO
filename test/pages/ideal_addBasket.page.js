@@ -1,9 +1,9 @@
 import Page from "./page.js";
-import { iDealMainPage } from "../resources/index.js";
+import { forAdd } from "../resources/index.js";
 
 class AddBasketPage extends Page {
     open () {
-        super.open(iDealMainPage+'iphone-15-pro?color=308&erply_storage=8');
+        super.open(forAdd.startPage);
     }
 
     get productLabel () {

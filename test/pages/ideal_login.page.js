@@ -1,9 +1,9 @@
 import Page from "./page.js";
-import { iDealMainPage } from "../resources/index.js";
+import { forLogin } from "../resources/index.js";
 
 class LoginPage extends Page {
     open () {
-        super.open(iDealMainPage);
+        super.open(forLogin.iDealMainPage);
     }
 
     get myaccButton (){

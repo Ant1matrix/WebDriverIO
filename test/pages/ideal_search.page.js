@@ -1,9 +1,9 @@
 import Page from "./page.js";
-import {iDealMainPage} from "../resources/index.js";
+import {forSearch} from "../resources/index.js";
 
 class SearchPage extends Page {
     open() {
-        super.open(iDealMainPage); //super - using parent class functionality
+        super.open(forSearch.iDealMainPage); //super - using parent class functionality
     }
     
     get searchButton () {

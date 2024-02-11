@@ -1,5 +1,5 @@
 import SearchPage from '../pages/ideal_search.page.js';
-import {homeTitle} from '../resources/index.js';
+import {forSearch} from '../resources/index.js';
 
 describe('iDeal search for iPhone 15 Pro', () => {
     
@@ -8,7 +8,7 @@ describe('iDeal search for iPhone 15 Pro', () => {
     });
     
     it('should open main URL and verify the title', async () => {
-        await expect(browser).toHaveTitle(homeTitle);
+        await expect(browser).toHaveTitle(forSearch.homeTitle);
     });
     
     it('should click search button and check if search bar is desplayed', async () => {

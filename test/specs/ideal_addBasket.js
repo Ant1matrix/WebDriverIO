@@ -1,4 +1,4 @@
-import { iDealMainPage } from "../resources/index.js";
+import { forAdd } from "../resources/index.js";
 import AddBasketPage from "../pages/ideal_addBasket.page.js";
 
 describe('iDeal - add iPhone to basket and remove from basket', () => {
@@ -17,22 +17,22 @@ describe('iDeal - add iPhone to basket and remove from basket', () => {
 
     it('should click on add to basket and check new page url', async () => {
         await AddBasketPage.addButton.click();
-        await expect(browser).toHaveUrl(iDealMainPage+'crosssell/success/view/productId/8215/');
+        await expect(browser).toHaveUrl(forAdd.addSucc);
     });
 
     it('should check if item counter updated to 1 and for the page to have text sucesfully added', async () => {
         await expect(AddBasketPage.itmCounter).toHaveText('1');        
-        await expect(AddBasketPage.succText).toHaveText('Pievienots grozam');
+        await expect(AddBasketPage.succText).toHaveText(forAdd.addTxt);
     });
 
     it('should click on the basket icon and check new browser url', async () => {
         await AddBasketPage.itmBasket.click();
-        await expect(browser).toHaveUrl(iDealMainPage+'checkout/cart/');
+        await expect(browser).toHaveUrl(forAdd.checkoutCartURL);
     });
 
     it('should check if theres an iPhone 15 Pro in the basket and if iphone title has link to the product', async () => {
         await expect(AddBasketPage.iPhoneItm).toHaveText('iPhone 15 Pro');
-        await expect(AddBasketPage.iPhoneItm).toHaveLink(iDealMainPage+'iphone-15-pro');
+        await expect(AddBasketPage.iPhoneItm).toHaveLink(forAdd.productPage);
     });
 
     it('should check if theres remove from basket button and if its clickable', async () => {
